@@ -28,8 +28,8 @@ const CIRCLES_OF_CONFUSION: Record<
   }
 > = {
   "Tianmouc Sensor": {
-    coc: 0.004,
-    sensorHeight: 0.64,
+    coc: 0.015,
+    sensorHeight: 1.28,
   },
   "35mm (full frame)": {
     coc: 0.029,
@@ -236,9 +236,9 @@ function App() {
                 onChange={(val: number) => setFocalLengthInMillimeters(val)}
                 min={1}
                 max={100}
-                step={0.1}
+                step={0.5}
               >
-                {[1, 2.8, 5, 8, 10, 12, 14, 28, 35, 50, 70, 85].map((val) => (
+                {[1, 2.8, 5, 8, 10, 12, 14, 28, 35, 50, 70, 85, 100].map((val) => (
                   <SliderMark key={val} value={val} {...labelStyles}>
                     {val}
                   </SliderMark>
