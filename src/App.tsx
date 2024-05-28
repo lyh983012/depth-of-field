@@ -103,7 +103,7 @@ function App() {
     (hyperFocalDistanceInMM +
       (distanceToSubjectInMM - focalLengthInMillimeters));
 
-  const farDistanceInInches = 1360;
+  const farDistanceInInches = 660;
   const nearFocalPointInInches = clamp(
     depthOfFieldNearLimitInMM / 25.4,
     0,
