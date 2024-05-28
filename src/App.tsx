@@ -27,18 +27,14 @@ const CIRCLES_OF_CONFUSION: Record<
     sensorHeight: number;
   }
 > = {
-  "35mm (full frame)": {
-    coc: 0.029,
-    sensorHeight: 24,
+  "Tianmouc Sensor": {
+    coc: 0.004,
+    sensorHeight: 0.64,
   },
   "APS-C": {
     coc: 0.019,
     sensorHeight: 15.6,
-  },
-  "Tianmouc Sensor": {
-    coc: 0.015,
-    sensorHeight: 0.64,
-  },
+  }
 };
 
 const COMMON_SETUPS: {
@@ -61,27 +57,6 @@ const COMMON_SETUPS: {
     aperture: 1.8,
     idealDistance: 72,
     sensor: "APS-C",
-  },
-  {
-    name: "FF - 28mm",
-    focalLength: 28,
-    aperture: 1.4,
-    idealDistance: 48,
-    sensor: "35mm (full frame)",
-  },
-  {
-    name: "FF - 35mm",
-    focalLength: 35,
-    aperture: 1.4,
-    idealDistance: 60,
-    sensor: "35mm (full frame)",
-  },
-  {
-    name: "FF - 50mm",
-    focalLength: 50,
-    aperture: 1.8,
-    idealDistance: 72,
-    sensor: "35mm (full frame)",
   },
 ];
 
@@ -193,7 +168,7 @@ function App() {
 
             <Box flexGrow={1}>
               <RadioGroup
-                onChange={(v) => setSystem(v as "Imperial" | "Metric")}
+                onChange={(v) => setSystem(v as "Metric" | "Imperial" )}
                 value={system}
               >
                 <Stack direction="row">
@@ -252,7 +227,7 @@ function App() {
                 max={400}
                 step={1}
               >
-                {[14, 28, 35, 50, 70, 85, 100, 135, 155, 200].map((val) => (
+                {[2.8, 5, 8, 12, 14, 28, 35, 50, 70, 85, 100, 135].map((val) => (
                   <SliderMark key={val} value={val} {...labelStyles}>
                     {val}
                   </SliderMark>
