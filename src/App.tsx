@@ -28,7 +28,7 @@ const CIRCLES_OF_CONFUSION: Record<
   }
 > = {
   "Tianmouc Sensor": {
-    coc: 0.015,
+    coc: 0.004,
     sensorHeight: 0.64,
   },
   "35mm (full frame)": {
@@ -103,7 +103,7 @@ function App() {
     (hyperFocalDistanceInMM +
       (distanceToSubjectInMM - focalLengthInMillimeters));
 
-  const farDistanceInInches = 660;
+  const farDistanceInInches = 720;
   const nearFocalPointInInches = clamp(
     depthOfFieldNearLimitInMM / 25.4,
     0,
