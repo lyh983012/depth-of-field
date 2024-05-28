@@ -103,7 +103,7 @@ function App() {
     (hyperFocalDistanceInMM +
       (distanceToSubjectInMM - focalLengthInMillimeters));
 
-  const farDistanceInInches = 360;
+  const farDistanceInInches = 1360;
   const nearFocalPointInInches = clamp(
     depthOfFieldNearLimitInMM / 25.4,
     0,
@@ -236,9 +236,9 @@ function App() {
                 onChange={(val: number) => setFocalLengthInMillimeters(val)}
                 min={1}
                 max={100}
-                step={1}
+                step={0.1}
               >
-                {[2.8, 5 , 8, 10, 12, 14, 28, 35, 50, 70, 85].map((val) => (
+                {[1, 2.8, 5, 8, 10, 12, 14, 28, 35, 50, 70, 85].map((val) => (
                   <SliderMark key={val} value={val} {...labelStyles}>
                     {val}
                   </SliderMark>
