@@ -206,7 +206,7 @@ function App() {
                 aria-label="distance to subject"
                 value={distanceToSubjectInInches}
                 onChange={(val: number) => setDistanceToSubjectInInches(val)}
-                min={10}
+                min={1}
                 max={400}
                 step={1}
               >
@@ -234,8 +234,8 @@ function App() {
                 aria-label="focal length"
                 value={focalLengthInMillimeters}
                 onChange={(val: number) => setFocalLengthInMillimeters(val)}
-                min={3}
-                max={400}
+                min={1}
+                max={100}
                 step={1}
               >
                 {[2.8, 5 , 8, 10, 12, 14, 28, 35, 50, 70, 85].map((val) => (
