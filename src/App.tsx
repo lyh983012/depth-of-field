@@ -27,14 +27,6 @@ const CIRCLES_OF_CONFUSION: Record<
     sensorHeight: number;
   }
 > = {
-  Webcam: {
-    coc: 0.002,
-    sensorHeight: 3.6,
-  },
-  Smartphone: {
-    coc: 0.002,
-    sensorHeight: 7.3,
-  },
   "35mm (full frame)": {
     coc: 0.029,
     sensorHeight: 24,
@@ -43,9 +35,9 @@ const CIRCLES_OF_CONFUSION: Record<
     coc: 0.019,
     sensorHeight: 15.6,
   },
-  "Micro Four Thirds": {
+  "Tianmouc Sensor": {
     coc: 0.015,
-    sensorHeight: 13,
+    sensorHeight: 0.64,
   },
 };
 
@@ -57,18 +49,11 @@ const COMMON_SETUPS: {
   sensor: string;
 }[] = [
   {
-    name: "Webcam",
-    focalLength: 3.6,
-    aperture: 2.8,
+    name: "Tianmouc-1.8",
+    focalLength: 1.8,
+    aperture: 1.8,
     idealDistance: 36,
-    sensor: "Webcam",
-  },
-  {
-    name: "Smartphone",
-    focalLength: 4.3,
-    aperture: 2.0,
-    idealDistance: 36,
-    sensor: "Smartphone",
+    sensor: "Tianmouc",
   },
   {
     name: "APS-C - 35mm",
@@ -96,13 +81,6 @@ const COMMON_SETUPS: {
     focalLength: 50,
     aperture: 1.8,
     idealDistance: 72,
-    sensor: "35mm (full frame)",
-  },
-  {
-    name: "FF - 70mm",
-    focalLength: 70,
-    aperture: 2.8,
-    idealDistance: 96,
     sensor: "35mm (full frame)",
   },
 ];
