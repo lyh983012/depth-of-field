@@ -28,8 +28,12 @@ const CIRCLES_OF_CONFUSION: Record<
   }
 > = {
   "Tianmouc Sensor": {
-    coc: 0.004,
+    coc: 0.015,
     sensorHeight: 0.64,
+  },
+  "35mm (full frame)": {
+    coc: 0.029,
+    sensorHeight: 24,
   },
   "APS-C": {
     coc: 0.019,
@@ -58,6 +62,13 @@ const COMMON_SETUPS: {
     idealDistance: 72,
     sensor: "APS-C",
   },
+  {
+    name: "FF - 28mm",
+    focalLength: 28,
+    aperture: 1.4,
+    idealDistance: 48,
+    sensor: "35mm (full frame)",
+  }
 ];
 
 const SYSTEMS = ["Metric", "Imperial"] as const;
@@ -69,11 +80,11 @@ function clamp(value: number, min: number, max: number) {
 function App() {
   const [distanceToSubjectInInches, setDistanceToSubjectInInches] =
     useState(72);
-  const [focalLengthInMillimeters, setFocalLengthInMillimeters] = useState(50);
+  const [focalLengthInMillimeters, setFocalLengthInMillimeters] = useState(12);
   const [aperture, setAperture] = useState(1.8);
   const [subject, setSubject] = useState("Human");
-  const [system, setSystem] = useState<(typeof SYSTEMS)[number]>("Imperial");
-  const [sensor, setSensor] = useState("35mm (full frame)");
+  const [system, setSystem] = useState<(typeof SYSTEMS)[number]>("Metric");
+  const [sensor, setSensor] = useState("Tianmouc Sensor");
 
   const distanceToSubjectInMM = distanceToSubjectInInches * 25.4;
 
@@ -168,7 +179,7 @@ function App() {
 
             <Box flexGrow={1}>
               <RadioGroup
-                onChange={(v) => setSystem(v as "Metric" | "Imperial" )}
+                onChange={(v) => setSystem(v as "Imperial" | "Metric")}
                 value={system}
               >
                 <Stack direction="row">
@@ -227,7 +238,7 @@ function App() {
                 max={400}
                 step={1}
               >
-                {[2.8, 5, 8, 12, 14, 28, 35, 50, 70, 85, 100, 135].map((val) => (
+                {[2.8, 5 , 8, 10, 12, 14, 28, 35, 50, 70, 85].map((val) => (
                   <SliderMark key={val} value={val} {...labelStyles}>
                     {val}
                   </SliderMark>
